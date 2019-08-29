@@ -75,6 +75,16 @@
 		  border-bottom: 4px groove white;
 		  margin-bottom: 10px;
 		  	  }
+	  .addnote {
+		  color: #14587a;
+		  font-size: 2em;
+		  border-radius: 8px;
+		  margin-top:0.5em;
+	  }
+	  #notesfield{
+		  width: 90%;
+		  height: 200px;
+	  }
   </style>
 </head>
 
@@ -82,6 +92,11 @@
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script type="text/javascript">
     $(window).load(function() {
+		var filedate=new Date();
+		var filemonth=filedate.getMonth() + 1;
+		var fileday=filedate.getDate();
+		var fileyear=filedate.getFullYear();
+		var fname="" + filemonth+fileday+fileyear;
       if (localStorage.getItem("username") === null) {
         $("#userprompt").show();
       } else
@@ -136,5 +151,11 @@
 	<img class="activityicon" src="assets/diaper.png" alt="" data-act="Diaper change"/>
 	<img class="activityicon" id="timeout" src="assets/timeout.png" alt="" data-act="Timeout" />
 	<img class="activityicon" id="departure" src="assets/check-out.png" alt="" data-act="Check out" />
+	</div>
+	<button class="addnote" id="AddNotes">Add note</button>
+	<div id="activitynotes">
+		<input id="notesfield"></input>
+	<button class="addnote" id="appendact">Done</button>
+	</div>
 	</body>
 </html>
