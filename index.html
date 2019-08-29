@@ -38,7 +38,7 @@
     }
 	  input{
 		  font-size: 2em;
-		  margin-bottom: 1em;
+		  margin-bottom: 0.5em;
 		  margin-top:0.5em;
 	  }
     #childselect {
@@ -99,12 +99,12 @@
     function addUser() {
       var uid = document.getElementById("userID").value;
       localStorage.setItem("username", uid);
-		$("#userpropmt").hide();
 		$("#childselect").show();
     }
 
     function cselect() {
-      var cid = document.getElementById("cid").value;
+      		$("#userpropmt").hide();
+		var cid = document.getElementById("cid").value;
       localStorage.setItem("cid", cid);
       var timestamp = new Date();
       var uid = localStorage.getItem("username");
