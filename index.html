@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+	  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin: 0px;
+    }
+    h2 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+    }
+  </style>
+  <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: rgb(20, 88, 122);
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+      color: white;
+      font-family: Lato;
+    }
+    #userprompt {
+      display: none;
+    }
+    #childselect {
+      display: none;
+	  font-size: 1.2em;
+		margin-left: 0.5em;
+    }
+	      #localactivity {
+      display: none;
+	  font-size: 1.2em;
+		margin-left: 0.5em;
+    }
+    select, select option {
+      width: 60%;
+      font-family: Lato;
+		background-color:aliceblue;
+    }
+	  img {
+		  display: inline-block;
+		  padding: 2px;
+		  font-size: 0.5em;
+		  border: 1px groove white;
+	  }
+  </style>
+</head>
+
+<body>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript">
+    $(window).load(function() {
+      if (localStorage.getItem("username") === null) {
+        $("#userprompt").show();
+      } else
+        $("#childselect").show();
+		$(".activityicon").click(function() {
+			var actID=$(this).attr("data-act");
+			console.log(actID);
+			var cid = localStorage.getItem("cid");
+			console.log(cid);
+			var timestamp = new Date();
+      var uid = localStorage.getItem("username");
+			console.log(uid);
+			$("#localactivity").append("<p>" + actID + " selected for " + cid + " by " + uid + " at " + timestamp + "</p>");
+		});
+		
+    });
+
+    function addUser() {
+      var uid = document.getElementById("userID").value;
+      localStorage.setItem("username", uid);
+		$("#userpropmt").hide();
+		$("#childselect").show();
+    }
+
+    function cselect() {
+      var cid = document.getElementById("cid").value;
+      localStorage.setItem("cid", cid);
+      var timestamp = new Date();
+      var uid = localStorage.getItem("username");
+		$("#localactivity").show();
+    }
+
+  </script>
+  <div id="userprompt">
+    <p>
+      Enter Your Username:
+    </p>
+    <input id="userID" onchange="addUser()">
+  </div>
+  <div id="childselect">
+    <p>
+      Activity for:
+    </p>
+    <select id="cid" onchange="cselect()">
+		<option> </option>
+      <option>Joe</option>
+      <option>Chloe</option>
+    </select>
+	  <p> </p>
+  </div>
+<div id="localactivity">
+  <p>Activities</p>
+	  <img class="activityicon" id="arrival" src="assets/check-in.png" width="54" height="50" alt="" data-act="Check in" />
+	<img class="activityicon" src="assets/bottle-icon.png" width="50" height="50" alt="" data-act="Bottle"/>
+	<img class="activityicon" src="assets/diaper.png" width="82" height="50" alt="" data-act="Diaper change"/>
+	</body>
+</html>
