@@ -74,9 +74,6 @@
 		  border-bottom: 4px groove white;
 		  margin-bottom: 10px;
 		  	  }
-	  #selectbanner{
-		  display:none;
-	  }
   </style>
 </head>
 
@@ -90,12 +87,9 @@
         $("#childselect").show();
 		$(".activityicon").click(function() {
 			var actID=$(this).attr("data-act");
-			console.log(actID);
 			var cid = localStorage.getItem("cid");
-			console.log(cid);
 			var timestamp = new Date();
       var uid = localStorage.getItem("username");
-			console.log(uid);
 			$("#localactivity").append("<p>" + actID + " logged for " + cid + " by " + uid + " at " + timestamp + "</p>");
 		});
 		
