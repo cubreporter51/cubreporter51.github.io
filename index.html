@@ -38,6 +38,8 @@
     }
 	  input{
 		  font-size: 2em;
+		  margin-bottom: 1em;
+		  margin-top:0.5em;
 	  }
     #childselect {
       display: none;
@@ -49,14 +51,30 @@
 		margin-left: 2em;
 			  font-size: 2em;
     }
-    select, select option {
+    select {
       width: 60%;
       font-family: Lato;
 		background-color:aliceblue;
+		font-size: 2em;
+		margin-top:0.5em;
     }
+
 	  img {
 		  display: inline-block;
 		  padding: 8px;
+	  }
+	  #activitybanner {
+		  margin-top: 1.5em;
+		  width: 100%;
+		  background-color: silver;
+		  color: #14587a;
+		  font-size: 3em;
+		  padding-left: 12px;
+		  font-weight:500;
+		  border-top: 4px groove white;
+		  border-bottom: 4px groove white;
+		  margin-bottom: 10px;
+		  
 	  }
   </style>
 </head>
@@ -115,8 +133,8 @@
     </select>
 	  <p> </p>
   </div>
+		<div id="activitybanner"><p>Activities</p></div>
 <div id="localactivity">
-  <p>Activities</p>
 	  <img class="activityicon" id="arrival" src="assets/check-in.png" alt="" data-act="Check in" />
 	<img class="activityicon" src="assets/bottle-icon.png" alt="" data-act="Bottle"/>
 	<img class="activityicon" src="assets/diaper.png" alt="" data-act="Diaper change"/>
