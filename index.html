@@ -63,7 +63,7 @@
 		  display: inline-block;
 		  padding: 8px;
 	  }
-	  #activitybanner {
+	  .banner {
 		  margin-top: 1.5em;
 		  width: 100%;
 		  background-color: silver;
@@ -74,7 +74,9 @@
 		  border-top: 4px groove white;
 		  border-bottom: 4px groove white;
 		  margin-bottom: 10px;
-		  
+		  	  }
+	  #selectbanner{
+		  display:none;
 	  }
   </style>
 </head>
@@ -122,18 +124,18 @@
     </p>
     <input id="userID" onchange="addUser()">
   </div>
-  <div id="childselect">
-    <p>
+  <div class="banner" id="selectbanner"><p>
       Activity for:
-    </p>
-    <select id="cid" onchange="cselect()">
+    </p></div>
+	<div id="childselect">
+        <select id="cid" onchange="cselect()">
 		<option> </option>
       <option>Joe</option>
       <option>Chloe</option>
     </select>
 	  <p> </p>
   </div>
-		<div id="activitybanner"><p>Activities</p></div>
+		<div class="banner"><p>Activities</p></div>
 <div id="localactivity">
 	  <img class="activityicon" id="arrival" src="assets/check-in.png" alt="" data-act="Check in" />
 	<img class="activityicon" src="assets/bottle-icon.png" alt="" data-act="Bottle"/>
