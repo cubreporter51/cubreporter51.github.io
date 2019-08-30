@@ -114,6 +114,29 @@ $(document).ready(function(){
         $("#cid").append('<option data-code="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
 			      });
     });
+	$("#cid").change(function) {
+		var cid = document.getElementById("cid").value;
+		var ccode=$(this).attr("data-code");
+		
+      localStorage.setItem("cid", cid);
+		var filedate=new Date();
+		var filemonth=filedate.getMonth() + 1;
+		if (filemonth < 10) {
+			filemonth="0"+filemonth;
+			console.log(filemonth);
+		}
+		var fileday=filedate.getDate();
+		var fileyear=filedate.getFullYear();
+		var fname="" + filemonth+fileday+fileyear;
+		var logfile=ccode + filemonth + fileday + fileyear;
+		console.log(logfile);
+      var timestamp = new Date();
+      var uid = localStorage.getItem("username");
+		$("#localactivity").show();
+    }
+});
+		
+	}
 	 });
     function addUser() {
       var uid = document.getElementById("userID").value;
@@ -122,7 +145,6 @@ $(document).ready(function(){
     }
 
     function cselect() {
-      		$("#userpropmt").hide();
 		var cid = document.getElementById("cid").value;
 		var ccode=$(this).attr("data-code");
 		
@@ -154,7 +176,7 @@ $(document).ready(function(){
       Activity for:
     </p></div>
 	<div id="childselect">
-        <select id="cid" onchange="cselect()">
+        <select id="cid">
 		<option> </option>
     </select>
 	  <p> </p>
