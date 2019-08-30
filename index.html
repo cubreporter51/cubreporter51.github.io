@@ -125,8 +125,7 @@ $(document).ready(function(){
       		$("#userpropmt").hide();
 		var cid = document.getElementById("cid").value;
 		var ccode=$("#cid").attr("data-code");
-		var logfile=ccode + filemonth + fileday + fileyear;
-		console.log(logfile);
+		
       localStorage.setItem("cid", cid);
 		var filedate=new Date();
 		var filemonth=filedate.getMonth() + 1;
@@ -137,6 +136,8 @@ $(document).ready(function(){
 		var fileday=filedate.getDate();
 		var fileyear=filedate.getFullYear();
 		var fname="" + filemonth+fileday+fileyear;
+		var logfile=ccode + filemonth + fileday + fileyear;
+		console.log(logfile);
       var timestamp = new Date();
       var uid = localStorage.getItem("username");
 		$("#localactivity").show();
