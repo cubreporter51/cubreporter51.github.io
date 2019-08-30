@@ -131,8 +131,7 @@ $(document).ready(function(){
 		var fname="" + filemonth+fileday+fileyear;
 		var logfile=ccode + filemonth + fileday + fileyear;
 		console.log(logfile);
-      var timestamp = new Date();
-      var uid = localStorage.getItem("username");
+$("#localactivity").load(fname +"/" + logfile +".txt");
     });		
 	});
     function addUser() {
