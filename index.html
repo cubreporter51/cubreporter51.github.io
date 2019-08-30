@@ -111,12 +111,13 @@
 $(document).ready(function(){
 	$.getJSON("data.js", function(result){
 		$.each(result, function(i, field){
-        $("#cid").append('<option data-code="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
+        $("#cid").append('<option id="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
 			      });
     });
 	$("#cid").change(function() {
-		var cid = document.getElementById("cid").value;
-		var ccode=$(this).attr("data-code");
+		var cid = $("#cid").val();
+		alert(cid);
+		var ccode=$("#cid").id;
 		alert(ccode);
       localStorage.setItem("cid", cid);
 		var filedate=new Date();
@@ -184,11 +185,6 @@ $(document).ready(function(){
 	<img class="activityicon" src="assets/diaper.png" alt="" data-act="Diaper change"/>
 	<img class="activityicon" id="timeout" src="assets/timeout.png" alt="" data-act="Timeout" />
 	<img class="activityicon" id="departure" src="assets/check-out.png" alt="" data-act="Check out" />
-	</div>
-	<button class="addnote" id="AddNotes">Add note</button>
-	<div id="activitynotes">
-		<input id="notesfield"></input>
-	<button class="addnote" id="appendact">Done</button>
 	</div>
 	</body>
 </html>
