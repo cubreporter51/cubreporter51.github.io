@@ -93,15 +93,7 @@
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script type="text/javascript">
     $(window).load(function() {
-		var filedate=new Date();
-		var filemonth=filedate.getMonth() + 1;
-		if (filedate < 10) {
-			filedate="0"+filedate;
-			console.log(filedate);
-		}
-		var fileday=filedate.getDate();
-		var fileyear=filedate.getFullYear();
-		var fname="" + filemonth+fileday+fileyear;
+		
 		
       if (localStorage.getItem("username") === null) {
         $("#userprompt").show();
@@ -136,6 +128,15 @@ $(document).ready(function(){
 		var logfile=ccode + filemonth + fileday + fileyear;
 		console.log(logfile);
       localStorage.setItem("cid", cid);
+		var filedate=new Date();
+		var filemonth=filedate.getMonth() + 1;
+		if (filedate < 10) {
+			filedate="0"+filedate;
+			console.log(filedate);
+		}
+		var fileday=filedate.getDate();
+		var fileyear=filedate.getFullYear();
+		var fname="" + filemonth+fileday+fileyear;
       var timestamp = new Date();
       var uid = localStorage.getItem("username");
 		$("#localactivity").show();
