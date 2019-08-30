@@ -124,7 +124,7 @@ $(document).ready(function(){
     function cselect() {
       		$("#userpropmt").hide();
 		var cid = document.getElementById("cid").value;
-		var ccode=$("#cid").attr("data-code");
+		var ccode=document.getElementById("cid").attr("data-code");
 		
       localStorage.setItem("cid", cid);
 		var filedate=new Date();
