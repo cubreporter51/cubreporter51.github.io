@@ -7,7 +7,7 @@ $(document).ready(function(){
     $.getJSON("data.js", function(result){
 		console.log(result);
       $.each(result, function(i, field){
-        $("#cid").append('<option value="' + field.Name + '">');
+        $("#cid").append('<option value="' + field.Name + '">' + field.Name + '</option>');
       });
     });
 
