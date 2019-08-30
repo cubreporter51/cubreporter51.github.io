@@ -38,6 +38,7 @@
 		font-size: 2em;	
     }
 	  input{
+		  width: 100%;
 		  font-size: 2em;
 		  margin-bottom: 0.5em;
 		  margin-top:0.5em;
@@ -104,7 +105,9 @@
 			var cid = localStorage.getItem("cid");
 			var timestamp = new Date();
       var uid = localStorage.getItem("username");
-			$("#activitylog").append("<p>" + actID + " logged for " + cid + " by " + uid + " at " + timestamp + "</p>");
+			$("#activitylog").val($("#activitylog").val() + actID + " logged for " + cid + " by " + uid + " at " + timestamp);
+			var loggedtext=$("#activitylog").val().wrapInner("<p></p>");
+			alert(loggedtext);
 		});
 		
     });
@@ -161,6 +164,7 @@ $("#activitylog").load(fname +"/" + logfile +".html");
 	<img class="activityicon" id="timeout" src="assets/timeout.png" alt="" data-act="Timeout" />
 	<img class="activityicon" id="departure" src="assets/check-out.png" alt="" data-act="Check out" />
 	</div>
-	<div id="activitylog"></div>
+	<form >
+	<input id="activitylog"></input></form>
 	</body>
 </html>
