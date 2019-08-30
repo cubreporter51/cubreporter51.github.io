@@ -97,6 +97,9 @@
 		var fileday=filedate.getDate();
 		var fileyear=filedate.getFullYear();
 		var fname="" + filemonth+fileday+fileyear;
+		$.getJSON("data.js", function(result){
+		$.each(result, function(i, field){
+        $("#cid").append('<option data-code="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
       if (localStorage.getItem("username") === null) {
         $("#userprompt").show();
       } else
@@ -139,8 +142,6 @@
 	<div id="childselect">
         <select id="cid" onchange="cselect()">
 		<option> </option>
-      <option>Joe</option>
-      <option>Chloe</option>
     </select>
 	  <p> </p>
   </div>
