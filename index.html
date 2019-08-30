@@ -114,7 +114,7 @@ $(document).ready(function(){
         $("#cid").append('<option data-code="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
 			      });
     });
-	$("#cid").change(function) {
+	$("#cid").change(function()) {
 		var cid = document.getElementById("cid").value;
 		var ccode=$(this).attr("data-code");
 		alert(ccode);
