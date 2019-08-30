@@ -104,7 +104,7 @@
 			var cid = localStorage.getItem("cid");
 			var timestamp = new Date();
       var uid = localStorage.getItem("username");
-			$("#localactivity").append("<p>" + actID + " logged for " + cid + " by " + uid + " at " + timestamp + "</p>");
+			$("#activitylog").append("<p>" + actID + " logged for " + cid + " by " + uid + " at " + timestamp + "</p>");
 		});
 		
     });
@@ -116,22 +116,18 @@ $(document).ready(function(){
     });
 	$("#cid").change(function() {
 		var cid = $("#cid").val();
-		alert(cid);
 		var ccode=$(this).children(":selected").attr("id");
-		alert(ccode);
       localStorage.setItem("cid", cid);
 		var filedate=new Date();
 		var filemonth=filedate.getMonth() + 1;
 		if (filemonth < 10) {
 			filemonth="0"+filemonth;
-			console.log(filemonth);
 		}
 		var fileday=filedate.getDate();
 		var fileyear=filedate.getFullYear();
 		var fname="" + filemonth+fileday+fileyear;
 		var logfile=ccode + filemonth + fileday + fileyear;
-		console.log(logfile);
-$("#localactivity").load(fname +"/" + logfile +".txt");
+$("#activitylog").load(fname +"/" + logfile +".txt");
     });		
 	});
     function addUser() {
@@ -140,26 +136,6 @@ $("#localactivity").load(fname +"/" + logfile +".txt");
 		$("#childselect").show();
     }
 
-    function cselect() {
-		var cid = document.getElementById("cid").value;
-		var ccode=$(this).attr("data-code");
-		
-      localStorage.setItem("cid", cid);
-		var filedate=new Date();
-		var filemonth=filedate.getMonth() + 1;
-		if (filemonth < 10) {
-			filemonth="0"+filemonth;
-			console.log(filemonth);
-		}
-		var fileday=filedate.getDate();
-		var fileyear=filedate.getFullYear();
-		var fname="" + filemonth+fileday+fileyear;
-		var logfile=ccode + filemonth + fileday + fileyear;
-		console.log(logfile);
-      var timestamp = new Date();
-      var uid = localStorage.getItem("username");
-		$("#localactivity").show();
-    };
 
   </script>
   <div id="userprompt">
@@ -185,5 +161,6 @@ $("#localactivity").load(fname +"/" + logfile +".txt");
 	<img class="activityicon" id="timeout" src="assets/timeout.png" alt="" data-act="Timeout" />
 	<img class="activityicon" id="departure" src="assets/check-out.png" alt="" data-act="Check out" />
 	</div>
+	<div id="activitylog"></div>
 	</body>
 </html>
