@@ -117,7 +117,7 @@ $(document).ready(function(){
 	$("#cid").change(function() {
 		var cid = $("#cid").val();
 		alert(cid);
-		var ccode=$("#cid").id;
+		var ccode=$(this).children(":selected").attr("id");
 		alert(ccode);
       localStorage.setItem("cid", cid);
 		var filedate=new Date();
