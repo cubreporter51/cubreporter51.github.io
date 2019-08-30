@@ -4,20 +4,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
     $.getJSON("data.js", function(result){
 		console.log(result);
       $.each(result, function(i, field){
-        $("div").append(field.Name + " ");
+        $("#cid").append('<option value="' + field[i].Name + '">');
       });
     });
-  });
+
 });
 </script>
 </head>
 <body>
 
-<button>Get JSON data</button>
+<select id="cid">
+	</select>
 
 <div></div>
 
