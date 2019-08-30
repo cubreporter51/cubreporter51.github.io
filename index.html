@@ -106,8 +106,9 @@
 			var timestamp = new Date();
       var uid = localStorage.getItem("username");
 			$("#activitylog").val($("#activitylog").val() + actID + " logged for " + cid + " by " + uid + " at " + timestamp);
-			var loggedtext=$("#activitylog").val().wrapInner("<p></p>");
-			alert(loggedtext);
+			var loggedtext=$("#activitylog").val();
+			var posttext="<p>" + loggedtext + "</p>";
+			alert(posttext);
 		});
 		
     });
