@@ -129,9 +129,9 @@ $(document).ready(function(){
       localStorage.setItem("cid", cid);
 		var filedate=new Date();
 		var filemonth=filedate.getMonth() + 1;
-		if (filedate < 10) {
-			filedate="0"+filedate;
-			console.log(filedate);
+		if (filemonth < 10) {
+			filemonth="0"+filedate;
+			console.log(filemonth);
 		}
 		var fileday=filedate.getDate();
 		var fileyear=filedate.getFullYear();
