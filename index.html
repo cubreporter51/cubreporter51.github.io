@@ -43,7 +43,7 @@
 		  margin-top:0.5em;
 	  }
     #childselect {
-      display:none;
+      display:block;
 		margin-left: 2em;
     }
 	      #localactivity {
@@ -98,11 +98,7 @@
 		var fileday=filedate.getDate();
 		var fileyear=filedate.getFullYear();
 		var fname="" + filemonth+fileday+fileyear;
-		$.getJSON("data.js", function(result){
-		$.each(result, function(i, field){
-        $("#cid").append('<option data-code="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
-			      });
-    });
+		
       if (localStorage.getItem("username") === null) {
         $("#userprompt").show();
       } else
@@ -116,7 +112,13 @@
 		});
 		
     });
-
+$(document).ready(function(){
+	$.getJSON("data.js", function(result){
+		$.each(result, function(i, field){
+        $("#cid").append('<option data-code="' + field.Code +'" value="' + field.Name + '">' + field.Name + '</option>');
+			      });
+    });
+	 });
     function addUser() {
       var uid = document.getElementById("userID").value;
       localStorage.setItem("username", uid);
