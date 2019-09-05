@@ -105,8 +105,8 @@
 			var cid = localStorage.getItem("cid");
 			var timestamp = new Date();
       var uid = localStorage.getItem("username");
-			$("#activitylog").val($("#activitylog").val() + actID + " logged for " + cid + " by " + uid + " at " + timestamp);
-			var loggedtext=$("#activitylog").val();
+			$("#newactivitylog").val($("#newactivitylog").val() + actID + " logged for " + cid + " by " + uid + " at " + timestamp);
+			var loggedtext=$("#newactivitylog").val();
 			var posttext="<p>" + loggedtext + "</p>";
 			alert(posttext);
 		});
@@ -165,7 +165,10 @@ $("#activitylog").load(fname +"/" + logfile +".html");
 	<img class="activityicon" id="timeout" src="assets/timeout.png" alt="" data-act="Timeout" />
 	<img class="activityicon" id="departure" src="assets/check-out.png" alt="" data-act="Check out" />
 	</div>
-	<form >
-	<input id="activitylog"></input></form>
+	<div id="#activitylog">
+	<form action="testphp.php" method="post">
+	<input id="newactivitylog"></input>
+		<input type="submit"></input></form>
+	</div>
 	</body>
 </html>
